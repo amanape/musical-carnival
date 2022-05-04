@@ -2,6 +2,9 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import TaskList from './components/TaskList/TaskList';
 import { ITask } from './components/Task/Task';
+import TaskInputBar from './components/TaskInputBar/TaskInputBar';
+
+import './sass/main.scss';
 
 const DUMMY_TASKS: ITask[] = [
   {
@@ -19,7 +22,10 @@ const DUMMY_TASKS: ITask[] = [
 ];
 
 const App = () => (
-  <TaskList tasks={DUMMY_TASKS} />
+  <>
+    <TaskInputBar />
+    <TaskList tasks={DUMMY_TASKS} />
+  </>
 );
 
 export default App;
