@@ -1,4 +1,10 @@
 import React from 'react';
+import './Task.scss';
+
+export interface ITask {
+  id: string;
+  title: string;
+}
 
 const Task: React.FC<{ title: string }> = ({ title }) => (
   <li>
