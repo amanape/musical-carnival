@@ -1,5 +1,6 @@
 import React from 'react';
-import Task, { ITask } from '../Task/Task';
+import Task from '../Task/Task';
+import { ITask } from '../../shared/types';
 
 const TaskList: React.FC<{ tasks: ITask[] }> = ({ tasks }) => (
   <ol>

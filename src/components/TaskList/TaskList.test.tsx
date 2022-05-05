@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { nanoid } from 'nanoid';
 import TaskList from './TaskList';
-import { ITask } from '../Task/Task';
+import { ITask } from '../../shared/types';
 
 it('should render all tasks correctly', () => {
   const allTasks: ITask[] = [

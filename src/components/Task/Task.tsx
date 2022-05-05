@@ -1,9 +1,5 @@
 import React from 'react';
-
-export interface ITask {
-  id: string;
-  title: string;
-}
+import { ITask } from '../../shared/types';
 
 const Task: React.FC<ITask> = ({ title, id }) => (
   <li className="task">

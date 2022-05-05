@@ -1,10 +1,10 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import TaskList from './components/TaskList/TaskList';
-import { ITask } from './components/Task/Task';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 
 import './sass/main.scss';
+import { ITask } from './shared/types';
 
 const DUMMY_TASKS: ITask[] = [
   {
