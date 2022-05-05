@@ -22,10 +22,9 @@ const DUMMY_TASKS: ITask[] = [
 ];
 
 const App = () => (
-  <>
-    <h1>Your Tasks</h1>
+  <div className="App">
     <TaskInputBar />
-    <div>
+    <div className="task-container">
       <strong>Tasks</strong>
       <TaskList tasks={DUMMY_TASKS} />
     </div>
@@ -35,7 +34,7 @@ const App = () => (
         <input type="checkbox" id="filter-complete" />
       </label>
     </div>
-  </>
+  </div>
 );
 
 export default App;

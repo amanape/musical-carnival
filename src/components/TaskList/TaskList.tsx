@@ -3,8 +3,8 @@ import Task, { ITask } from '../Task/Task';
 
 const TaskList: React.FC<{ tasks: ITask[] }> = ({ tasks }) => (
   <ol>
-    {tasks.map(({ id, title }) => (
-      <Task title={title} key={id} />
+    {tasks.map(({ title, id }) => (
+      <Task title={title} id={id} key={id} />
     ))}
   </ol>
 );

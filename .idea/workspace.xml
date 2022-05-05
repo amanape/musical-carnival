@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sass/base/_reset.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sass/layout/_app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/base/_reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/base/_reset.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/layout/_task.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_task.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +122,7 @@
       <workItem from="1651580550183" duration="668000" />
       <workItem from="1651666496335" duration="420000" />
       <workItem from="1651666940090" duration="6782000" />
-      <workItem from="1651754084532" duration="628000" />
+      <workItem from="1651754084532" duration="2551000" />
     </task>
     <servers />
   </component>

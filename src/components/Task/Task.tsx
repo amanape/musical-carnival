@@ -5,10 +5,12 @@ export interface ITask {
   title: string;
 }
 
-const Task: React.FC<{ title: string }> = ({ title }) => (
+const Task: React.FC<ITask> = ({ title, id }) => (
   <li className="task">
-    <input type="checkbox" />
-    <span>{title}</span>
+    <label htmlFor={id}>
+      <input type="checkbox" id={id} />
+      {title}
+    </label>
     <div>
       <button type="button" className="btn-edit">Edit</button>
       <button type="button" className="btn-delete">Delete</button>
