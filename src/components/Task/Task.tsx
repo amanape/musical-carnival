@@ -1,5 +1,4 @@
 import React from 'react';
-import './Task.scss';
 
 export interface ITask {
   id: string;
