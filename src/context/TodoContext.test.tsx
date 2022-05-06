@@ -6,8 +6,7 @@ import { ITask } from '../shared/types';
 describe('TodoContext', () => {
   // eslint-disable-next-line max-len
   const wrapper = ({ children }: React.PropsWithChildren<{}>) => <TodoProvider>{children}</TodoProvider>;
-  // Dummy data
-  const Task: ITask = {
+  const dummyTask: ITask = {
     id: '2',
     title: 'test',
   };
@@ -17,23 +16,23 @@ describe('TodoContext', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
 
-      expect(result.current.tasks).toEqual([Task]);
+      expect(result.current.tasks).toEqual([dummyTask]);
     });
 
     it('shouldn\'t add a task that already exists', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
 
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
 
-      expect(result.current.tasks).toEqual([Task]);
+      expect(result.current.tasks).toEqual([dummyTask]);
     });
   });
 
@@ -42,10 +41,10 @@ describe('TodoContext', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
       act(() => {
-        result.current.removeTask(Task.id);
+        result.current.removeTask(dummyTask.id);
       });
 
       expect(result.current.tasks).toEqual([]);
@@ -57,13 +56,13 @@ describe('TodoContext', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
       act(() => {
-        result.current.updateTask(Task.id, { title: 'test2' });
+        result.current.updateTask(dummyTask.id, { title: 'test2' });
       });
 
-      expect(result.current.tasks).toEqual([{ ...Task, title: 'test2' }]);
+      expect(result.current.tasks).toEqual([{ ...dummyTask, title: 'test2' }]);
     });
   });
 
@@ -72,7 +71,7 @@ describe('TodoContext', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
-        result.current.addTask(Task);
+        result.current.addTask(dummyTask);
       });
       act(() => {
         result.current.clearTasks();
