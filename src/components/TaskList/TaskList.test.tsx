@@ -1,28 +1,40 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { nanoid } from 'nanoid';
+import {
+  render, screen,
+} from '@testing-library/react';
 import TaskList from './TaskList';
-import { ITask } from '../../shared/types';
 
-it('should render all tasks correctly', () => {
-  const allTasks: ITask[] = [
-    {
-      id: nanoid(),
-      title: 'Task 1',
-    },
-    {
-      id: nanoid(),
-      title: 'Task 2',
-    },
-    {
-      id: nanoid(),
-      title: 'Task 3',
-    },
-  ];
+describe('TaskList', () => {
+  describe('without tasks', () => {
+    const stubTodoContextHook = () => ({
+      tasks: [],
+    });
 
-  render(<TaskList tasks={allTasks} />);
+    it('should render empty message', () => {
+      render(<TaskList useTodoContextHook={stubTodoContextHook} />);
+      expect(screen.getByText('No tasks yet')).toBeInTheDocument();
+    });
+  });
 
-  allTasks.forEach(({ title }) => {
-    expect(screen.getByText(title)).toBeInTheDocument();
+  describe('with tasks', () => {
+    const stubTodoContextHook = () => ({
+      tasks: [
+        {
+          id: '1',
+          title: 'Task 1',
+        },
+        {
+          id: '2',
+          title: 'Task 2',
+        },
+      ],
+    });
+
+    it('should render tasks', () => {
+      render(<TaskList useTodoContextHook={stubTodoContextHook} />);
+
+      expect(screen.getByText('Task 1')).toBeInTheDocument();
+      expect(screen.getByText('Task 2')).toBeInTheDocument();
+    });
   });
 });
