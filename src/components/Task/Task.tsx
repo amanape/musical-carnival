@@ -3,8 +3,8 @@ import { ITask } from '../../shared/types';
 
 const Task: React.FC<ITask> = ({ title, id }) => (
   <li className="task">
-    <label htmlFor={id}>
-      <input type="checkbox" id={id} />
+    <label htmlFor={`task-${id}`}>
+      <input type="checkbox" id={`task-${id}`} />
       {title}
     </label>
     <div className="btn-container">
