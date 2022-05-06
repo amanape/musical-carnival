@@ -4,8 +4,9 @@ import { TodoProvider, useTodoContext } from './TodoContext';
 import { ITask } from '../shared/types';
 
 describe('TodoContext', () => {
-  // eslint-disable-next-line max-len
-  const wrapper = ({ children }: React.PropsWithChildren<{}>) => <TodoProvider>{children}</TodoProvider>;
+  const wrapper = ({ children }: React.PropsWithChildren<{}>) => (
+    <TodoProvider>{children}</TodoProvider>
+  );
   const dummyTask: ITask = {
     id: '2',
     title: 'test',
