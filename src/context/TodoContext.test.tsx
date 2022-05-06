@@ -13,7 +13,7 @@ describe('TodoContext', () => {
   };
 
   describe('addTask', () => {
-    it('should add a task on addTask', () => {
+    it('should add a task on call', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
@@ -23,7 +23,7 @@ describe('TodoContext', () => {
       expect(result.current.tasks).toEqual([Task]);
     });
 
-    it('shouldnt add a task that already exists', () => {
+    it('shouldn\'t add a task that already exists', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
       act(() => {
         result.current.addTask(Task);
@@ -37,22 +37,48 @@ describe('TodoContext', () => {
     });
   });
 
-  it('should remove a task on removeTask', () => {
-    const { result } = renderHook(() => useTodoContext(), { wrapper });
+  describe('removeTask', () => {
+    it('should remove a task on call', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
 
-    act(() => {
-      result.current.addTask(Task);
-    });
-    act(() => {
-      result.current.removeTask(Task.id);
-    });
+      act(() => {
+        result.current.addTask(Task);
+      });
+      act(() => {
+        result.current.removeTask(Task.id);
+      });
 
-    expect(result.current.tasks).toEqual([]);
+      expect(result.current.tasks).toEqual([]);
+    });
   });
 
-  it.todo('should update a task on updateTask');
+  describe('updateTask', () => {
+    it('should update a task on call', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
 
-  it.todo('should remove a task on removeTask');
+      act(() => {
+        result.current.addTask(Task);
+      });
+      act(() => {
+        result.current.updateTask(Task.id, { title: 'test2' });
+      });
 
-  it.todo('should clear all tasks on clearTasks');
+      expect(result.current.tasks).toEqual([{ ...Task, title: 'test2' }]);
+    });
+  });
+
+  describe('clearTasks', () => {
+    it('should remove all tasks on call', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+      act(() => {
+        result.current.addTask(Task);
+      });
+      act(() => {
+        result.current.clearTasks();
+      });
+
+      expect(result.current.tasks).toEqual([]);
+    });
+  });
 });

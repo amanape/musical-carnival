@@ -5,7 +5,7 @@ interface TodoContextProps {
   tasks: ITask[];
   addTask: (task: ITask) => void;
   removeTask: (id: string) => void;
-  updateTask: (id: string, task: ITask) => void;
+  updateTask: (id: string, task: { title: string }) => void;
   clearTasks: () => void;
 }
 
@@ -15,7 +15,7 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [tasks, setTasks] = React.useState<ITask[]>([]);
 
   const addTask = (task: ITask) => {
-    if (tasks.find((t) => t.title === task.title)) return;
+    if (tasks.find((t) => t.title === task.title)) return; // Do not add duplicates
     setTasks([...tasks, task]);
   };
 
@@ -23,14 +23,15 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const updateTask = (id: string, task: ITask) => {
-    console.log(id, task);
+  const updateTask = (id: string, task: Pick<ITask, 'title'>) => {
+    setTasks(tasks.map((t) => (t.id === id ? { ...t, ...task } : t)));
   };
 
   const clearTasks = () => {
     setTasks([]);
   };
 
+  // Avoid 'value' object to be re-created on each render
   const value = useMemo(() => ({
     tasks,
     addTask,
