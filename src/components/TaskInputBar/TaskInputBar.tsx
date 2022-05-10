@@ -8,13 +8,13 @@ interface TaskInputBarProps {
 }
 
 const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTodoContext }) => {
-  const { addTask } = useTodoContextHook();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { addTask } = useTodoContextHook();
 
   const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (inputRef.current && inputRef.current.value) {
+    if (inputRef.current?.value) {
       const task: ITask = { id: nanoid(), title: inputRef.current.value };
       if (task) addTask(task);
       inputRef.current.value = '';

@@ -10,7 +10,6 @@ interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }) => {
   const [show, setShow] = useState(false);
-
   const { removeTask } = useTodoContextHook();
   const { id, title } = task;
 
