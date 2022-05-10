@@ -60,7 +60,7 @@ describe('TodoContext', () => {
         result.current.addTask(dummyTask);
       });
       act(() => {
-        result.current.updateTask(dummyTask.id, { title: 'test2' });
+        result.current.updateTask({ ...dummyTask, title: 'test2' });
       });
 
       expect(result.current.tasks).toEqual([{ ...dummyTask, title: 'test2' }]);

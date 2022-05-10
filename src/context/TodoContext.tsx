@@ -5,7 +5,7 @@ interface TodoContextProps {
   tasks: ITask[];
   addTask: (task: ITask) => void;
   removeTask: (id: string) => void;
-  updateTask: (id: string, task: { title: string }) => void;
+  updateTask: (task: ITask) => void;
   clearTasks: () => void;
 }
 
@@ -23,8 +23,8 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const updateTask = (id: string, task: Pick<ITask, 'title'>) => {
-    setTasks(tasks.map((t) => (t.id === id ? { ...t, ...task } : t)));
+  const updateTask = (task: ITask) => {
+    setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
   };
 
   const clearTasks = () => {

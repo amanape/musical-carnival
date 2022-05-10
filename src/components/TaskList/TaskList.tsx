@@ -11,8 +11,8 @@ const TaskList: React.FC<TaskListProps> = ({ useTodoContextHook = useTodoContext
 
   return (
     <ol>
-      {tasks && tasks.map(({ title, id }) => (
-        <Task title={title} id={id} key={id} />
+      {tasks && tasks.map((task) => (
+        <Task task={task} key={task.id} />
       ))}
       {!tasks.length && <p>No tasks yet</p>}
     </ol>
