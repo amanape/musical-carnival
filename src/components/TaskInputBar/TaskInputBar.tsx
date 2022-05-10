@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { useTodoContext } from '../../context/TodoContext';
 import { ITask } from '../../shared/types';
@@ -11,7 +11,9 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
   const { addTask } = useTodoContextHook();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const createTaskHandler = () => {
+  const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (inputRef.current && inputRef.current.value) {
       const task: ITask = { id: nanoid(), title: inputRef.current.value };
       if (task) addTask(task);
@@ -20,10 +22,10 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
   };
 
   return (
-    <div>
+    <form onSubmit={onSubmitHandler}>
       <input type="text" placeholder="Add a task..." aria-label="Create a new task" ref={inputRef} />
-      <button type="submit" className="btn-create" onClick={createTaskHandler}>Create Task</button>
-    </div>
+      <button type="submit" className="btn-create">Create Task</button>
+    </form>
   );
 };
 
