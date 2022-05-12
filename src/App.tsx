@@ -15,10 +15,14 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
   const [filterSort, setFilterSort] = React.useState(false);
 
   const { tasks } = useTodoContextHook();
+
+  // Filter out completed tasks.
   const filteredTasks = filterComplete ? tasks.filter((task) => !task.completed) : tasks;
-  const sortedTasks = filterSort ? ([] as ITask[]).concat(filteredTasks).sort(
-    (a, b) => a.title.localeCompare(b.title),
-  ) : filteredTasks;
+  // Sort tasks by alphabetical order.
+  const sortedTasks = filterSort
+    ? ([] as ITask[]).concat(filteredTasks) // Create a copy of the array.
+      .sort((a, b) => a.title.localeCompare(b.title))
+    : filteredTasks;
 
   return (
     <div className="App">
