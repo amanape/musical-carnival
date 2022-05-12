@@ -11,12 +11,12 @@ interface TaskProps {
 const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }) => {
   const [show, setShow] = useState(false);
   const { removeTask, toggleTask } = useTodoContextHook();
-  const { id, title } = task;
+  const { id, title, completed } = task;
 
   return (
     <li className="task">
       <label htmlFor={`task-${id}`}>
-        <input type="checkbox" id={`task-${id}`} onChange={() => toggleTask(id)} />
+        <input type="checkbox" id={`task-${id}`} onChange={() => toggleTask(id)} defaultChecked={completed} />
         {title}
       </label>
       <div className="btn-container">
