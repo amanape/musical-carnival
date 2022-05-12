@@ -33,10 +33,6 @@ describe('Task', () => {
 
   describe.skip('when the "Edit" button is clicked', () => {
     // Unable to get this test to work, something to do with mocking the useState hook.
-    jest.mock('react', () => ({
-      ...jest.requireActual('react'),
-      useState: jest.fn(),
-    }));
     const setState = jest.fn();
     const mockUseState = jest.fn((initState) => [initState, setState]);
 
