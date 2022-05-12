@@ -4,28 +4,33 @@ import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
 
 import './sass/main.scss';
+import { ITask } from './shared/types';
 
 interface AppProps {
   useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'tasks'>
 }
 
 const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
-  const [filter, setFilter] = React.useState(false);
+  const [filterComplete, setFilterComplete] = React.useState(false);
+  const [filterSort, setFilterSort] = React.useState(false);
 
   const { tasks } = useTodoContextHook();
-  const filteredTasks = filter ? tasks.filter((task) => !task.completed) : tasks;
+  const filteredTasks = filterComplete ? tasks.filter((task) => !task.completed) : tasks;
+  const sortedTasks = filterSort ? ([] as ITask[]).concat(filteredTasks).sort(
+    (a, b) => a.title.localeCompare(b.title),
+  ) : filteredTasks;
 
   return (
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <strong>Tasks</strong>
-        <TaskList tasks={filter ? filteredTasks : tasks} />
+        <button type="button" onClick={() => setFilterSort((prevState) => !prevState)}>Tasks</button>
+        <TaskList tasks={filterSort ? sortedTasks : filteredTasks} />
       </div>
       <div>
         <label htmlFor="filter-complete">
           Hide completed
-          <input type="checkbox" id="filter-complete" onChange={() => setFilter((prevState) => !prevState)} />
+          <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
         </label>
       </div>
     </div>
