@@ -5,10 +5,10 @@ import { ITask } from '../../shared/types';
 
 describe('Task', () => {
   const removeTask = jest.fn();
-  const updateTask = jest.fn();
+  const toggleTask = jest.fn();
   const stubTodoContextHook = () => ({
     removeTask,
-    updateTask,
+    toggleTask,
   });
   const dummyTask: ITask = {
     id: '1',
@@ -29,6 +29,17 @@ describe('Task', () => {
       delButton.click();
 
       expect(removeTask).toHaveBeenCalledWith(dummyTask.id);
+    });
+  });
+
+  describe('When the checkbox is clicked', () => {
+    it('should call toggleTask', () => {
+      render(<Task task={dummyTask} useTodoContextHook={stubTodoContextHook} />);
+      const checkbox = screen.getByRole('checkbox');
+
+      checkbox.click();
+
+      expect(toggleTask).toHaveBeenCalledWith(dummyTask.id);
     });
   });
 

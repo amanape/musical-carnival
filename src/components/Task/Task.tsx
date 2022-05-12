@@ -5,18 +5,18 @@ import EditModal from './EditModal/EditModal';
 
 interface TaskProps {
   task: ITask;
-  useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'removeTask'>
+  useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'removeTask' | 'toggleTask'>
 }
 
 const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }) => {
   const [show, setShow] = useState(false);
-  const { removeTask } = useTodoContextHook();
+  const { removeTask, toggleTask } = useTodoContextHook();
   const { id, title } = task;
 
   return (
     <li className="task">
       <label htmlFor={`task-${id}`}>
-        <input type="checkbox" id={`task-${id}`} />
+        <input type="checkbox" id={`task-${id}`} onChange={() => toggleTask(id)} />
         {title}
       </label>
       <div className="btn-container">
