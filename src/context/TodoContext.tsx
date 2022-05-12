@@ -7,6 +7,7 @@ interface TodoContextProps {
   removeTask: (id: string) => void;
   updateTask: (task: ITask) => void;
   clearTasks: () => void;
+  toggleTask: (id: string) => void;
 }
 
 const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
@@ -31,6 +32,10 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setTasks([]);
   };
 
+  const toggleTask = (id: string) => {
+    setTasks(tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
+  };
+
   // Avoid 'value' object to be re-created on each render
   const value = useMemo(() => ({
     tasks,
@@ -38,6 +43,7 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
     removeTask,
     updateTask,
     clearTasks,
+    toggleTask,
   }), [tasks]);
 
   return (

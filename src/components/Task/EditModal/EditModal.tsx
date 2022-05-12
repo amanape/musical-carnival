@@ -3,7 +3,7 @@ import { useTodoContext } from '../../../context/TodoContext';
 
 interface EditModalProps {
   taskId: string;
-  useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'updateTask'>
+  useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'updateTask' | 'tasks'>
   modalCloseHandler: () => void;
 }
 
@@ -11,14 +11,16 @@ interface EditModalProps {
 const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTodoContextHook = useTodoContext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { updateTask } = useTodoContextHook();
+  const { updateTask, tasks } = useTodoContextHook();
+
+  const task = tasks.find(({ id }) => id === taskId);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newTitle = inputRef.current?.value;
-    if (newTitle) {
-      updateTask({ id: taskId, title: newTitle });
+    if (newTitle && task) {
+      updateTask({ ...task, title: newTitle });
       modalCloseHandler();
     }
   };

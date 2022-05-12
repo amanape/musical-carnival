@@ -13,6 +13,7 @@ describe('Task', () => {
   const dummyTask: ITask = {
     id: '1',
     title: 'test',
+    completed: false,
   };
   it('should output the correct task data', () => {
     render(<Task task={dummyTask} />);

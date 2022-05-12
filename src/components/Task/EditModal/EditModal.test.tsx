@@ -5,8 +5,10 @@ import EditModal from './EditModal';
 
 describe('EditModal', () => {
   const updateTask = jest.fn();
+  const dummyTask = { id: '1', title: 'test', completed: false };
   const stubTodoContextHook = () => ({
     updateTask,
+    tasks: [dummyTask],
   });
   const closeModal = jest.fn();
 
@@ -30,7 +32,7 @@ describe('EditModal', () => {
       userEvent.type(input, 'new task');
       userEvent.click(button);
 
-      expect(updateTask).toHaveBeenCalledWith({ id: '1', title: 'new task' });
+      expect(updateTask).toHaveBeenCalledWith({ ...dummyTask, title: 'new task' });
       expect(closeModal).toHaveBeenCalled();
     });
 

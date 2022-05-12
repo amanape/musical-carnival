@@ -10,6 +10,7 @@ describe('TodoContext', () => {
   const dummyTask: ITask = {
     id: '2',
     title: 'test',
+    completed: false,
   };
 
   describe('addTask', () => {
@@ -79,6 +80,27 @@ describe('TodoContext', () => {
       });
 
       expect(result.current.tasks).toEqual([]);
+    });
+  });
+
+  describe('toggleTask', () => {
+    it('should toggle a task on call', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+      act(() => {
+        result.current.addTask(dummyTask);
+      });
+      act(() => {
+        result.current.toggleTask(dummyTask.id);
+      });
+
+      expect(result.current.tasks).toEqual([{ ...dummyTask, completed: true }]);
+
+      act(() => {
+        result.current.toggleTask(dummyTask.id);
+      });
+
+      expect(result.current.tasks).toEqual([dummyTask]);
     });
   });
 });
