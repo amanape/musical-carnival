@@ -1,14 +1,14 @@
 @import '../abstracts/mixins';
 @import '../abstracts/variables';
 
-button.btn-create {
+.btn-create {
   @include button($primary_color)
 }
 
-button.btn-edit {
+.btn-edit {
   @include button($secondary_color)
 }
 
-button.btn-delete {
+.btn-delete {
   @include button($danger_color)
 }

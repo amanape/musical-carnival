@@ -7,7 +7,6 @@ interface EditModalProps {
   modalCloseHandler: () => void;
 }
 
-// eslint-disable-next-line max-len
 const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTodoContextHook = useTodoContext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -28,7 +27,6 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
   return (
     <form onSubmit={submitHandler}>
       <label htmlFor="edit-task-input">
-        Edit task
         <input type="text" id="edit-task-input" ref={inputRef} />
       </label>
       <div className="btn-container">
