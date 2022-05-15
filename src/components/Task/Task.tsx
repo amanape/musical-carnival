@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdEdit, MdDelete } from 'react-icons/md';
 import { ITask } from '../../shared/types';
 import { useTodoContext } from '../../context/TodoContext';
 import EditModal from './EditModal/EditModal';
@@ -21,8 +22,12 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
       </label>
       {!show && (
       <div className="btn-container">
-        <button type="button" className="btn-edit" onClick={() => setShow(true)}>Edit</button>
-        <button type="button" className="btn-delete" onClick={() => removeTask(id)}>Delete</button>
+        <button type="button" aria-label="Edit" className="btn-edit" onClick={() => setShow(true)}>
+          <MdEdit />
+        </button>
+        <button type="button" aria-label="Delete" className="btn-delete" onClick={() => removeTask(id)}>
+          <MdDelete />
+        </button>
       </div>
       )}
       {show && <EditModal taskId={id} modalCloseHandler={() => setShow(false)} />}

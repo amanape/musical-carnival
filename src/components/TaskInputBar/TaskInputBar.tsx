@@ -1,4 +1,5 @@
 import React, { FormEvent, useRef } from 'react';
+import { BsPlusLg } from 'react-icons/bs';
 import { nanoid } from 'nanoid';
 import { useTodoContext } from '../../context/TodoContext';
 import { ITask } from '../../shared/types';
@@ -22,9 +23,9 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
   };
 
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmitHandler} className="input-form">
       <input type="text" placeholder="Add a task..." aria-label="Create a new task" ref={inputRef} />
-      <button type="submit" className="btn-create">Create Task</button>
+      <button type="submit" aria-label="Add task" className="btn-create"><BsPlusLg /></button>
     </form>
   );
 };

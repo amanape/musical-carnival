@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { MdCancel, MdDone } from 'react-icons/md';
 import { useTodoContext } from '../../../context/TodoContext';
 
 interface EditModalProps {
@@ -30,8 +31,12 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
         <input type="text" id="edit-task-input" ref={inputRef} />
       </label>
       <div className="btn-container">
-        <button type="submit" className="btn-create">Done</button>
-        <button type="button" className="btn-delete" onClick={modalCloseHandler}>Cancel</button>
+        <button type="submit" aria-label="Finish edit" className="btn-create">
+          <MdDone />
+        </button>
+        <button type="button" aria-label="Cancel edit" className="btn-delete" onClick={modalCloseHandler}>
+          <MdCancel />
+        </button>
       </div>
     </form>
   );
