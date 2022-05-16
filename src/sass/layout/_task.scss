@@ -7,6 +7,10 @@ li.task {
     border-bottom: none;
   }
 
+  &:hover, label:hover {
+    cursor: pointer;
+  }
+
   .btn-container {
     display: flex;
     justify-content: flex-end;

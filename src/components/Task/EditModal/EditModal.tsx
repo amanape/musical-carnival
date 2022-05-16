@@ -26,7 +26,7 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className="edit-modal">
       <label htmlFor="edit-task-input">
         <input type="text" id="edit-task-input" ref={inputRef} />
       </label>
