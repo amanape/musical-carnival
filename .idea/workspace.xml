@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sass/layout/_task_input_bar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +80,33 @@
       <recent name="$PROJECT_DIR$/src/shared/types.ts" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.TaskInputBar">
+    <configuration name="EditModal" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" />
+      <test-names>
+        <test-name value="EditModal" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TaskInputBar" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.test.tsx" />
+      <test-names>
+        <test-name value="TaskInputBar" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="should output the correct task data" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -102,6 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.TaskInputBar" />
+        <item itemvalue="Jest.EditModal" />
         <item itemvalue="Jest.should output the correct task data" />
       </list>
     </recent_temporary>
@@ -136,7 +158,8 @@
       <workItem from="1652267517223" duration="8574000" />
       <workItem from="1652354760532" duration="2888000" />
       <workItem from="1652441781597" duration="4000" />
-      <workItem from="1652625011508" duration="6206000" />
+      <workItem from="1652625011508" duration="6569000" />
+      <workItem from="1652710472355" duration="691000" />
     </task>
     <servers />
   </component>

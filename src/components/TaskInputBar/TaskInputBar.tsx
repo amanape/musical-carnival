@@ -25,7 +25,7 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
   return (
     <form onSubmit={onSubmitHandler} className="input-form">
       <input type="text" placeholder="Add a task..." aria-label="Create a new task" ref={inputRef} />
-      <button type="submit" aria-label="Add task" className="btn-create"><BsPlusLg /></button>
+      <button type="submit" aria-label="Create task" className="btn-create"><BsPlusLg /></button>
     </form>
   );
 };

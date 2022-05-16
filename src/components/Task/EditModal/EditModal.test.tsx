@@ -14,8 +14,10 @@ describe('EditModal', () => {
 
   describe('when "Cancel" button is clicked', () => {
     it('calls "closeModal"', () => {
-      const { getByRole } = render(<EditModal taskId="1" modalCloseHandler={closeModal} useTodoContextHook={stubTodoContextHook} />);
-      const button = getByRole('button', { name: 'Cancel' });
+      const { getByRole } = render(
+        <EditModal taskId="1" modalCloseHandler={closeModal} useTodoContextHook={stubTodoContextHook} />,
+      );
+      const button = getByRole('button', { name: /cancel edit/i });
 
       userEvent.click(button);
 
@@ -25,9 +27,11 @@ describe('EditModal', () => {
 
   describe('when "Done" button is clicked', () => {
     it('calls "updateTask" with the new data and calls "closeModal"', () => {
-      const { getByRole } = render(<EditModal taskId="1" modalCloseHandler={closeModal} useTodoContextHook={stubTodoContextHook} />);
-      const input = getByRole('textbox', { name: /edit task/i });
-      const button = getByRole('button', { name: 'Done' });
+      const { getByRole } = render(
+        <EditModal taskId="1" modalCloseHandler={closeModal} useTodoContextHook={stubTodoContextHook} />,
+      );
+      const input = getByRole('textbox');
+      const button = getByRole('button', { name: /finish edit/i });
 
       userEvent.type(input, 'new task');
       userEvent.click(button);
