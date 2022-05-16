@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { ITask } from '../shared/types';
+import { initialTasks } from '../shared/data';
 
 interface TodoContextProps {
   tasks: ITask[];
@@ -9,24 +10,6 @@ interface TodoContextProps {
   clearTasks: () => void;
   toggleTask: (id: string) => void;
 }
-
-export const initialTasks: ITask[] = [
-  {
-    id: '1',
-    title: 'Complete Elecctro challenge',
-    completed: true,
-  },
-  {
-    id: '2',
-    title: 'Learn Node.js',
-    completed: false,
-  },
-  {
-    id: '3',
-    title: 'Learn GraphQL',
-    completed: false,
-  },
-];
 
 const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
 

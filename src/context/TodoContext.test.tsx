@@ -1,7 +1,8 @@
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
-import { initialTasks, TodoProvider, useTodoContext } from './TodoContext';
+import { TodoProvider, useTodoContext } from './TodoContext';
 import { ITask } from '../shared/types';
+import { initialTasks } from '../shared/data';
 
 describe('TodoContext', () => {
   const wrapper = ({ children }: React.PropsWithChildren<{}>) => (
