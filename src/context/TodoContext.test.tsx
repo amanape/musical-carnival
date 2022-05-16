@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
-import { TodoProvider, useTodoContext } from './TodoContext';
+import { initialTasks, TodoProvider, useTodoContext } from './TodoContext';
 import { ITask } from '../shared/types';
 
 describe('TodoContext', () => {
@@ -8,7 +8,7 @@ describe('TodoContext', () => {
     <TodoProvider>{children}</TodoProvider>
   );
   const dummyTask: ITask = {
-    id: '2',
+    id: '42',
     title: 'test',
     completed: false,
   };
@@ -16,25 +16,27 @@ describe('TodoContext', () => {
   describe('addTask', () => {
     it('should add a task on call', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
+      expect(result.current.tasks.length).toBe(initialTasks.length);
 
       act(() => {
         result.current.addTask(dummyTask);
       });
 
-      expect(result.current.tasks).toEqual([dummyTask]);
+      expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
     });
 
     it('shouldn\'t add a task that already exists', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
-      act(() => {
-        result.current.addTask(dummyTask);
-      });
 
       act(() => {
         result.current.addTask(dummyTask);
       });
 
-      expect(result.current.tasks).toEqual([dummyTask]);
+      act(() => {
+        result.current.addTask(dummyTask);
+      });
+
+      expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
     });
   });
 
@@ -49,7 +51,7 @@ describe('TodoContext', () => {
         result.current.removeTask(dummyTask.id);
       });
 
-      expect(result.current.tasks).toEqual([]);
+      expect(result.current.tasks).toEqual(initialTasks);
     });
   });
 
@@ -64,7 +66,7 @@ describe('TodoContext', () => {
         result.current.updateTask({ ...dummyTask, title: 'test2' });
       });
 
-      expect(result.current.tasks).toEqual([{ ...dummyTask, title: 'test2' }]);
+      expect(result.current.tasks).toEqual([...initialTasks, { ...dummyTask, title: 'test2' }]);
     });
   });
 
@@ -94,13 +96,13 @@ describe('TodoContext', () => {
         result.current.toggleTask(dummyTask.id);
       });
 
-      expect(result.current.tasks).toEqual([{ ...dummyTask, completed: true }]);
+      expect(result.current.tasks).toEqual([...initialTasks, { ...dummyTask, completed: true }]);
 
       act(() => {
         result.current.toggleTask(dummyTask.id);
       });
 
-      expect(result.current.tasks).toEqual([dummyTask]);
+      expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
     });
   });
 });

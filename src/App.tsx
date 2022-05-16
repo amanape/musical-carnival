@@ -28,7 +28,9 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <button type="button" onClick={() => setFilterSort((prevState) => !prevState)}>Tasks</button>
+        <button type="button" aria-label="Sort tasks" onClick={() => setFilterSort((prevState) => !prevState)}>
+          Tasks
+        </button>
         <TaskList tasks={filterSort ? sortedTasks : filteredTasks} />
       </div>
       <div>

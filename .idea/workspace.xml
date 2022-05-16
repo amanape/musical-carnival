@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sass/layout/_edit_modal.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/layout/_task.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_task.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/TodoContext.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/TodoContext.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/TodoContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/TodoContext.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,51 +82,85 @@
       <recent name="$PROJECT_DIR$/src/shared/types.ts" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.TaskInputBar">
-    <configuration name="EditModal" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.TodoContext">
+    <configuration name="TodoContext" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/context/TodoContext.test.tsx" />
       <test-names>
-        <test-name value="EditModal" />
+        <test-name value="TodoContext" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="TaskInputBar" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="TodoContext.addTask" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/context/TodoContext.test.tsx" />
       <test-names>
-        <test-name value="TaskInputBar" />
+        <test-name value="TodoContext" />
+        <test-name value="addTask" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="should output the correct task data" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="TodoContext.addTask.should add a task on call" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/Task.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/context/TodoContext.test.tsx" />
       <test-names>
-        <test-name value="should output the correct task data" />
+        <test-name value="TodoContext" />
+        <test-name value="addTask" />
+        <test-name value="should add a task on call" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TodoContext.addTask.shouldn't add a task that already exists" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/context/TodoContext.test.tsx" />
+      <test-names>
+        <test-name value="TodoContext" />
+        <test-name value="addTask" />
+        <test-name value="shouldn't add a task that already exists" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TodoContext.removeTask" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/context/TodoContext.test.tsx" />
+      <test-names>
+        <test-name value="TodoContext" />
+        <test-name value="removeTask" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.TaskInputBar" />
-        <item itemvalue="Jest.EditModal" />
-        <item itemvalue="Jest.should output the correct task data" />
+        <item itemvalue="Jest.TodoContext" />
+        <item itemvalue="Jest.TodoContext.removeTask" />
+        <item itemvalue="Jest.TodoContext.addTask.shouldn't add a task that already exists" />
+        <item itemvalue="Jest.TodoContext.addTask.should add a task on call" />
+        <item itemvalue="Jest.TodoContext.addTask" />
       </list>
     </recent_temporary>
   </component>

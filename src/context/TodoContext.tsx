@@ -10,10 +10,28 @@ interface TodoContextProps {
   toggleTask: (id: string) => void;
 }
 
+export const initialTasks: ITask[] = [
+  {
+    id: '1',
+    title: 'Complete Elecctro challenge',
+    completed: true,
+  },
+  {
+    id: '2',
+    title: 'Learn Node.js',
+    completed: false,
+  },
+  {
+    id: '3',
+    title: 'Learn GraphQL',
+    completed: false,
+  },
+];
+
 const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
 
 export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [tasks, setTasks] = React.useState<ITask[]>([]);
+  const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
 
   const addTask = (task: ITask) => {
     if (tasks.find((t) => t.title === task.title)) return; // Do not add duplicates
