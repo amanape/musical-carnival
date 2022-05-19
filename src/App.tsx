@@ -5,7 +5,7 @@ import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
 
 import './sass/main.scss';
-import useCycle from './hooks/useCycle';
+import useCycle from './hooks/use-cycle';
 import { ITask } from './shared/types';
 
 interface AppProps {
