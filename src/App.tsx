@@ -18,7 +18,8 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
   const { tasks } = useTodoContextHook();
 
   // Filter out completed tasks.
-  const sortedTasks = filterComplete ? tasks.filter((task) => !task.completed) : ([] as ITask[]).concat(tasks);
+  const filteredTasks = filterComplete ? tasks.filter((task) => !task.completed) : tasks;
+  const sortedTasks = ([] as ITask[]).concat(filteredTasks); // Clone array to avoid mutation
   sortedTasks.sort((a, b) => (
     sortOption === 'asc'
       ? a.title.localeCompare(b.title)
@@ -32,7 +33,7 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
         <button type="button" aria-label="Sort tasks" onClick={cycle}>
           Tasks
         </button>
-        <TaskList tasks={sortOption === 'default' ? tasks : sortedTasks} />
+        <TaskList tasks={sortOption === 'default' ? filteredTasks : sortedTasks} />
       </div>
       <div>
         <label htmlFor="filter-complete">
