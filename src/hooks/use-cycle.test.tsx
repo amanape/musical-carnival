@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import useCycle from './useCycle';
+import useCycle from './use-cycle';
 
 describe('useCycle', () => {
   it('cycles through given states', () => {

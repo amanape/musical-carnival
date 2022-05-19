@@ -26,18 +26,22 @@ describe('TodoContext', () => {
       expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
     });
 
-    it('shouldn\'t add a task that already exists', () => {
+    it('should throw an error if a task already exists', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });
 
       act(() => {
         result.current.addTask(dummyTask);
       });
 
-      act(() => {
-        result.current.addTask(dummyTask);
-      });
+      expect(() => act(() => result.current.addTask(dummyTask))).toThrowError('Task already exists');
+    });
 
-      expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
+    it('should throw an error if a task is whitespace', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+      expect(
+        () => act(() => result.current.addTask({ ...dummyTask, title: '   ' })),
+      ).toThrowError('Task cannot be empty');
     });
   });
 
@@ -68,6 +72,28 @@ describe('TodoContext', () => {
       });
 
       expect(result.current.tasks).toEqual([...initialTasks, { ...dummyTask, title: 'test2' }]);
+    });
+
+    it('should throw an error if a task already exists', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+      act(() => {
+        result.current.addTask(dummyTask);
+      });
+
+      expect(() => act(() => result.current.updateTask(dummyTask))).toThrowError('Task already exists');
+    });
+
+    it('should throw an error if a task is whitespace', () => {
+      const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+      act(() => {
+        result.current.addTask(dummyTask);
+      });
+
+      expect(
+        () => act(() => result.current.updateTask({ ...dummyTask, title: '   ' })),
+      ).toThrowError('Task cannot be empty');
     });
   });
 

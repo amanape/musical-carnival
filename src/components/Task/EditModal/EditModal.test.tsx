@@ -12,6 +12,15 @@ describe('EditModal', () => {
   });
   const closeModal = jest.fn();
 
+  it('should display the task title', () => {
+    const { getByRole } = render(
+      <EditModal taskId="1" modalCloseHandler={closeModal} useTodoContextHook={stubTodoContextHook} />,
+    );
+    const inputEl = getByRole('textbox');
+
+    expect(inputEl).toHaveValue(dummyTask.title);
+  });
+
   describe('when "Cancel" button is clicked', () => {
     it('calls "closeModal"', () => {
       const { getByRole } = render(
@@ -36,11 +45,8 @@ describe('EditModal', () => {
       userEvent.type(input, 'new task');
       userEvent.click(button);
 
-      expect(updateTask).toHaveBeenCalledWith({ ...dummyTask, title: 'new task' });
+      expect(updateTask).toHaveBeenCalledWith({ ...dummyTask, title: 'testnew task' });
       expect(closeModal).toHaveBeenCalled();
     });
-
-    it.todo('Doesnt call "updateTask" if the input is empty or only whitespaces');
-    it.todo('Doesnt call "updateTask" if the input title already exists');
   });
 });
