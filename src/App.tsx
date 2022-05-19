@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
 
 import './sass/main.scss';
+import useCycle from './hooks/useCycle';
 import { ITask } from './shared/types';
 
 interface AppProps {
@@ -11,27 +12,27 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
-  const [filterComplete, setFilterComplete] = React.useState(false);
-  const [filterSort, setFilterSort] = React.useState(false);
+  const [filterComplete, setFilterComplete] = useState(false);
+  const [sortOption, cycle] = useCycle(['default', 'desc', 'asc']);
 
   const { tasks } = useTodoContextHook();
 
   // Filter out completed tasks.
-  const filteredTasks = filterComplete ? tasks.filter((task) => !task.completed) : tasks;
-  // Sort tasks by alphabetical order.
-  const sortedTasks = filterSort
-    ? ([] as ITask[]).concat(filteredTasks) // Create a copy of the array.
-      .sort((a, b) => a.title.localeCompare(b.title))
-    : filteredTasks;
+  const sortedTasks = filterComplete ? tasks.filter((task) => !task.completed) : ([] as ITask[]).concat(tasks);
+  sortedTasks.sort((a, b) => (
+    sortOption === 'asc'
+      ? a.title.localeCompare(b.title)
+      : b.title.localeCompare(a.title)
+  ));
 
   return (
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <button type="button" aria-label="Sort tasks" onClick={() => setFilterSort((prevState) => !prevState)}>
+        <button type="button" aria-label="Sort tasks" onClick={cycle}>
           Tasks
         </button>
-        <TaskList tasks={filterSort ? sortedTasks : filteredTasks} />
+        <TaskList tasks={sortOption === 'default' ? tasks : sortedTasks} />
       </div>
       <div>
         <label htmlFor="filter-complete">
