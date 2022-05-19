@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdCancel, MdDone } from 'react-icons/md';
 import { useTodoContext } from '../../../context/TodoContext';
 
@@ -10,25 +10,45 @@ interface EditModalProps {
 
 const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTodoContextHook = useTodoContext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<'typeError' | 'defError' | null>(null);
 
   const { updateTask, tasks } = useTodoContextHook();
 
-  const task = tasks.find(({ id }) => id === taskId);
+  const currentTask = tasks.find(({ id }) => id === taskId);
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     const newTitle = inputRef.current?.value;
-    if (newTitle && task) {
-      updateTask({ ...task, title: newTitle });
-      modalCloseHandler();
+    if (newTitle && currentTask) {
+      try {
+        updateTask({ ...currentTask, title: newTitle });
+        modalCloseHandler();
+      } catch (e) {
+        if (e instanceof TypeError) setError('typeError');
+        else setError('defError');
+      }
     }
   };
 
+  useEffect(() => {
+    if (currentTask && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.value = currentTask.title;
+    }
+  });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setError(null), 2000);
+    return () => clearTimeout(timeout);
+  }, [error]);
+
   return (
     <form onSubmit={submitHandler} className="edit-modal">
+      {error === 'defError' && <p className="error">Task already exists.</p>}
+      {error === 'typeError' && <p className="error">Task must be a valid text.</p>}
       <label htmlFor="edit-task-input">
-        <input type="text" id="edit-task-input" ref={inputRef} />
+        <input type="text" id="edit-task-input" required ref={inputRef} />
       </label>
       <div className="btn-container">
         <button type="submit" aria-label="Finish edit" className="btn-create">
