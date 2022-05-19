@@ -17,7 +17,8 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
 
   const addTask = (task: ITask) => {
-    if (tasks.find((t) => t.title === task.title)) return; // Do not add duplicates
+    if (task.title.trim() === '') throw new TypeError('Task cannot be empty');
+    if (tasks.find((t) => t.title === task.title)) throw new Error('Task already exists');
     setTasks([...tasks, task]);
   };
 
@@ -26,6 +27,8 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
   };
 
   const updateTask = (task: ITask) => {
+    if (task.title.trim() === '') throw new TypeError('Task cannot be empty');
+    if (tasks.find((t) => t.title === task.title)) throw new Error('Task already exists');
     setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
   };
 
