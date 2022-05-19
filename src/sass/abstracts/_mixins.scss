@@ -1,3 +1,5 @@
+@import "./variables";
+
 @mixin button($btn_color) {
   position: relative;
   cursor: pointer;
@@ -22,4 +24,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+@mixin error-message {
+  color: $danger_color;
+  font-weight: lighter;
+  margin: 0.5rem 0 0 0;
 }

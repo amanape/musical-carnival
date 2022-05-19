@@ -1,8 +1,18 @@
+@import "../abstracts/mixins";
+
 form.edit-modal {
+  position: relative;
   display: flex;
   flex-direction: row;
 
   label {
     margin-right: 1rem;
+  }
+
+  p.error {
+    @include error-message;
+    position: absolute;
+    right: -1rem;
+    transform: translateX(100%);
   }
 }
