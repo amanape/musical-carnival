@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai';
 import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
@@ -30,8 +31,14 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <button type="button" aria-label="Sort tasks" onClick={cycle}>
-          Tasks
+        <button type="button" aria-label="Sort tasks" className="task-button" onClick={cycle}>
+          <span>Tasks</span>
+          {sortOption !== 'default' && (
+            <>
+                {sortOption === 'asc' && <AiOutlineSortAscending />}
+                {sortOption === 'desc' && <AiOutlineSortDescending />}
+            </>
+          )}
         </button>
         <TaskList tasks={sortOption === 'default' ? filteredTasks : sortedTasks} />
       </div>
