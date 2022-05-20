@@ -45,7 +45,7 @@ describe('EditModal', () => {
       userEvent.type(input, 'new task');
       userEvent.click(button);
 
-      expect(updateTask).toHaveBeenCalledWith({ ...dummyTask, title: 'testnew task' });
+      expect(updateTask).toHaveBeenCalledWith({ ...dummyTask, title: `${dummyTask.title}new task` });
       expect(closeModal).toHaveBeenCalled();
     });
   });
