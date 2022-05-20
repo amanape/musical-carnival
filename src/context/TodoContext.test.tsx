@@ -97,21 +97,6 @@ describe('TodoContext', () => {
     });
   });
 
-  describe('clearTasks', () => {
-    it('should remove all tasks on call', () => {
-      const { result } = renderHook(() => useTodoContext(), { wrapper });
-
-      act(() => {
-        result.current.addTask(dummyTask);
-      });
-      act(() => {
-        result.current.clearTasks();
-      });
-
-      expect(result.current.tasks).toEqual([]);
-    });
-  });
-
   describe('toggleTask', () => {
     it('should toggle a task on call', () => {
       const { result } = renderHook(() => useTodoContext(), { wrapper });

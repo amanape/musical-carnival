@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context/TodoContext.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/TodoContext.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/context/TodoContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/TodoContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useCycle.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-cycle.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useCycle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/use-cycle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/abstracts/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/layout/_app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/layout/_edit_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_edit_modal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/layout/_task_input_bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_task_input_bar.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,27 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/src/components",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/node_modules/react-scripts",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "ts.external.directory.path": "/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/src/components&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/stephanpsaras/Desktop/Personal/Programming/Tests/elecctro/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
@@ -207,6 +196,8 @@
       <workItem from="1652957125067" duration="24000" />
       <workItem from="1652957157336" duration="1980000" />
       <workItem from="1652979729440" duration="1600000" />
+      <workItem from="1652992560631" duration="23000" />
+      <workItem from="1653039047390" duration="250000" />
     </task>
     <servers />
   </component>
