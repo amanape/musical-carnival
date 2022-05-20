@@ -19,7 +19,7 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
     event.preventDefault();
 
     if (inputRef.current?.value) {
-      const task: ITask = { id: nanoid(), title: inputRef.current.value, completed: false };
+      const task: ITask = { id: nanoid(), title: inputRef.current.value.trim(), completed: false };
       if (task) {
         try {
           addTask(task);

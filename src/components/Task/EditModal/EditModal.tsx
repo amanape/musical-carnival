@@ -19,7 +19,7 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const newTitle = inputRef.current?.value;
+    const newTitle = inputRef.current?.value.trim();
     if (newTitle && currentTask) {
       try {
         updateTask({ ...currentTask, title: newTitle });
