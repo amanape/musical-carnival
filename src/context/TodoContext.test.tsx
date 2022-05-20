@@ -4,15 +4,20 @@ import { TodoProvider, useTodoContext } from './TodoContext';
 import { ITask } from '../shared/types';
 import { initialTasks } from '../shared/data';
 
+const wrapper = ({ children }: React.PropsWithChildren<{}>) => (
+  <TodoProvider>{children}</TodoProvider>
+);
+const dummyTask: ITask = {
+  id: '42',
+  title: 'test',
+  completed: false,
+};
+
 describe('TodoContext', () => {
-  const wrapper = ({ children }: React.PropsWithChildren<{}>) => (
-    <TodoProvider>{children}</TodoProvider>
-  );
-  const dummyTask: ITask = {
-    id: '42',
-    title: 'test',
-    completed: false,
-  };
+  // Reset tasks before each test
+  beforeEach(() => {
+    localStorage.clear();
+  });
 
   describe('addTask', () => {
     it('should add a task on call', () => {
@@ -117,4 +122,18 @@ describe('TodoContext', () => {
       expect(result.current.tasks).toEqual([...initialTasks, dummyTask]);
     });
   });
+});
+
+describe('localStorage', () => {
+  const { result } = renderHook(() => useTodoContext(), { wrapper });
+
+  it('should save to localStorage on addTask', () => {
+    act(() => {
+      result.current.addTask(dummyTask);
+    });
+
+    expect(localStorage.getItem('tasks')).toBe(JSON.stringify([...initialTasks, dummyTask]));
+  });
+
+  // Rest of tests are trivial as localStorage is updated everytime the tasks change (useEffect dependency)
 });

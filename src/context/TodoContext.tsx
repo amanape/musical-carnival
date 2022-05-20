@@ -1,6 +1,9 @@
-import React, { createContext, useContext, useMemo } from 'react';
+import React, {
+  createContext, useContext, useMemo, useState, useEffect,
+} from 'react';
 import { ITask } from '../shared/types';
 import { initialTasks } from '../shared/data';
+import useLocalStorage from '../hooks/useLocalStorage/use-local-storage';
 
 interface TodoContextProps {
   tasks: ITask[];
@@ -13,7 +16,8 @@ interface TodoContextProps {
 const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
 
 export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
+  const [storedTasks, setStoredTasks] = useLocalStorage('tasks', initialTasks);
+  const [tasks, setTasks] = useState<ITask[]>(storedTasks);
 
   const addTask = (task: ITask) => {
     if (task.title.trim() === '') throw new TypeError('Task cannot be empty');
@@ -34,6 +38,11 @@ export const TodoProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const toggleTask = (id: string) => {
     setTasks(tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)));
   };
+
+  // Store tasks in local storage on change
+  useEffect(() => {
+    setStoredTasks(tasks);
+  }, [tasks]);
 
   // Avoid 'value' object to be re-created on each render
   const value = useMemo(() => ({
