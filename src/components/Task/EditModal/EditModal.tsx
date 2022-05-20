@@ -36,7 +36,7 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
       inputRef.current.focus();
       inputRef.current.value = currentTask.title;
     }
-  });
+  }, [currentTask]);
 
   useEffect(() => {
     const timeout = setTimeout(() => setError(null), 2000);
