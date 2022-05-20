@@ -4,7 +4,7 @@ import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
 import { ITask } from './shared/types';
-import useCycle from './hooks/use-cycle';
+import useCycle from './hooks/useCycle/use-cycle';
 
 import './sass/main.scss';
 
