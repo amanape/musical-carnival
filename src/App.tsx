@@ -3,10 +3,10 @@ import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai'
 import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
+import { ITask } from './shared/types';
+import useCycle from './hooks/use-cycle';
 
 import './sass/main.scss';
-import useCycle from './hooks/use-cycle';
-import { ITask } from './shared/types';
 
 interface AppProps {
   useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'tasks'>
@@ -31,23 +31,21 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <button type="button" aria-label="Sort tasks" className="task-button" onClick={cycle}>
-          <span>Tasks</span>
+        <div className="task-button-container">
+          <button type="button" aria-label="Sort tasks" onClick={cycle}>Tasks</button>
           {sortOption !== 'default' && (
             <>
                 {sortOption === 'asc' && <AiOutlineSortAscending />}
                 {sortOption === 'desc' && <AiOutlineSortDescending />}
             </>
           )}
-        </button>
+        </div>
         <TaskList tasks={sortOption === 'default' ? filteredTasks : sortedTasks} />
       </div>
-      <div>
-        <label htmlFor="filter-complete">
-          Hide completed
-          <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
-        </label>
-      </div>
+      <label htmlFor="filter-complete">
+        Hide completed
+        <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
+      </label>
     </div>
   );
 };
