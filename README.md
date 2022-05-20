@@ -35,4 +35,5 @@ as I have to complete a simple To-Do list application such as this.
 - 
 #### Final Remarks
 Until I receive a response from the instructor, I will continue to work on this challenge to try to make up for and 
-improve on my lack of time.
+improve on my lack of time. I have also noticed in my IDE (WebStorm), that my git tree seems to ignore the fact that I have
+created and merged branches.
