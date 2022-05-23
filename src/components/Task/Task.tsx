@@ -20,7 +20,7 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
     <li className="task">
       <label htmlFor={`task-${id}`}>
         <input type="checkbox" id={`task-${id}`} onChange={() => toggleTask(id)} defaultChecked={completed} />
-        <span>{title}</span>
+        <motion.span layout="position">{title}</motion.span>
       </label>
       {!show && (
         <div className="btn-container">

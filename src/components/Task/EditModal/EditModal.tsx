@@ -62,9 +62,9 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
         </motion.p>
         )}
       </AnimatePresence>
-      <label htmlFor="edit-task-input">
+      <motion.label layout htmlFor="edit-task-input">
         <input type="text" id="edit-task-input" ref={inputRef} />
-      </label>
+      </motion.label>
       <div className="btn-container">
         <motion.button
           variants={buttonVariants}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
@@ -42,10 +43,10 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
         </div>
         <TaskList tasks={sortOption === 'default' ? filteredTasks : sortedTasks} />
       </div>
-      <label htmlFor="filter-complete">
+      <motion.label layout htmlFor="filter-complete">
         Hide completed
         <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
-      </label>
+      </motion.label>
     </div>
   );
 };

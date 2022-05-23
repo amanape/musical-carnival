@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/TodoContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/TodoContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/layout/_task_input_bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_task_input_bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/variants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/variants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +204,7 @@
       <workItem from="1653299999815" duration="164000" />
       <workItem from="1653300430584" duration="680000" />
       <workItem from="1653302531253" duration="618000" />
-      <workItem from="1653325900555" duration="6858000" />
+      <workItem from="1653325900555" duration="8577000" />
     </task>
     <servers />
   </component>
