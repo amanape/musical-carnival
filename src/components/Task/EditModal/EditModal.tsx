@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MdCancel, MdDone } from 'react-icons/md';
+import { motion } from 'framer-motion';
 import { useTodoContext } from '../../../context/TodoContext';
+import { buttonVariants } from '../../../shared/variants';
 
 interface EditModalProps {
   taskId: string;
@@ -51,12 +53,27 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
         <input type="text" id="edit-task-input" required ref={inputRef} />
       </label>
       <div className="btn-container">
-        <button type="submit" aria-label="Finish edit" className="btn-create">
+        <motion.button
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          type="submit"
+          aria-label="Finish edit"
+          className="btn-create"
+        >
           <MdDone />
-        </button>
-        <button type="button" aria-label="Cancel edit" className="btn-delete" onClick={modalCloseHandler}>
+        </motion.button>
+        <motion.button
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+          type="button"
+          aria-label="Cancel edit"
+          className="btn-delete"
+          onClick={modalCloseHandler}
+        >
           <MdCancel />
-        </button>
+        </motion.button>
       </div>
     </form>
   );

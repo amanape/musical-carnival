@@ -3,8 +3,10 @@ import React, {
 } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
 import { nanoid } from 'nanoid';
+import { motion } from 'framer-motion';
 import { useTodoContext } from '../../context/TodoContext';
 import { ITask } from '../../shared/types';
+import { buttonVariants } from '../../shared/variants';
 
 interface TaskInputBarProps {
   useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'addTask'>
@@ -43,7 +45,16 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
   return (
     <form onSubmit={onSubmitHandler} className="input-form">
       <input type="text" placeholder="Add a task..." aria-label="Create a new task" required ref={inputRef} />
-      <button type="submit" aria-label="Create task" className="btn-create"><BsPlusLg /></button>
+      <motion.button
+        variants={buttonVariants}
+        whileHover="hover"
+        whileTap="tap"
+        type="submit"
+        aria-label="Create task"
+        className="btn-create"
+      >
+        <BsPlusLg />
+      </motion.button>
       {error === 'defError' && <p className="error">Task already exists.</p>}
       {error === 'typeError' && <p className="error">Task must be a valid text.</p>}
     </form>

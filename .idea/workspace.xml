@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/shared/variants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskInputBar/TaskInputBar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +76,14 @@
       <recent name="$PROJECT_DIR$/src/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/hooks/useCycle" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/hooks/useCycle" />
       <recent name="$PROJECT_DIR$/src/components/Task/EditModal" />
       <recent name="$PROJECT_DIR$/src/sass/partials" />
       <recent name="$PROJECT_DIR$/src/components/Task" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/shared/variants.ts" />
       <recent name="$PROJECT_DIR$/src/shared/data.ts" />
       <recent name="$PROJECT_DIR$/src/shared/types.ts" />
     </key>
@@ -152,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.TodoContext" />
         <item itemvalue="Jest.useLocalStorage" />
         <item itemvalue="Jest.useCycle.is not functionally bound by the render cycle" />
-        <item itemvalue="Jest.useCycle (1)" />
         <item itemvalue="Jest.useCycle.cycles through given states" />
+        <item itemvalue="Jest.useCycle (1)" />
+        <item itemvalue="Jest.TodoContext" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +203,11 @@
       <workItem from="1652979729440" duration="1600000" />
       <workItem from="1652992560631" duration="23000" />
       <workItem from="1653039047390" duration="1231000" />
-      <workItem from="1653061624059" duration="1181000" />
+      <workItem from="1653061624059" duration="2795000" />
+      <workItem from="1653299999815" duration="164000" />
+      <workItem from="1653300430584" duration="680000" />
+      <workItem from="1653302531253" duration="618000" />
+      <workItem from="1653325900555" duration="3159000" />
     </task>
     <servers />
   </component>

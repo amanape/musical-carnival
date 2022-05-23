@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MdEdit, MdDelete } from 'react-icons/md';
+import { motion } from 'framer-motion';
 import { ITask } from '../../shared/types';
 import { useTodoContext } from '../../context/TodoContext';
 import EditModal from './EditModal/EditModal';
+import { buttonVariants } from '../../shared/variants';
 
 interface TaskProps {
   task: ITask;
@@ -21,14 +23,30 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
         <span>{title}</span>
       </label>
       {!show && (
-      <div className="btn-container">
-        <button type="button" aria-label="Edit" className="btn-edit" onClick={() => setShow(true)}>
-          <MdEdit />
-        </button>
-        <button type="button" aria-label="Delete" className="btn-delete" onClick={() => removeTask(id)}>
-          <MdDelete />
-        </button>
-      </div>
+        <div className="btn-container">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            type="button"
+            aria-label="Edit"
+            className="btn-edit"
+            onClick={() => setShow(true)}
+          >
+            <MdEdit />
+          </motion.button>
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+            type="button"
+            aria-label="Delete"
+            className="btn-delete"
+            onClick={() => removeTask(id)}
+          >
+            <MdDelete />
+          </motion.button>
+        </div>
       )}
       {show && <EditModal taskId={id} modalCloseHandler={() => setShow(false)} />}
     </li>
