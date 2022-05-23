@@ -1,5 +1,7 @@
 li.task {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid black;
   padding: 0.5rem 0;
 
@@ -13,7 +15,6 @@ li.task {
 
   .btn-container {
     display: flex;
-    justify-content: flex-end;
 
     .btn-delete {
       margin-left: 0.5rem;
@@ -27,7 +28,20 @@ li.task {
 
     input:checked + span {
       color: #999;
-      text-decoration: line-through;
     }
+
+    span {
+      position: relative;
+
+      .line-through {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1px;
+        background-color: #999;
+      }
+    }
+
   }
 }

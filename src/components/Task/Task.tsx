@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { MdEdit, MdDelete } from 'react-icons/md';
+import { MdDelete, MdEdit } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { ITask } from '../../shared/types';
 import { useTodoContext } from '../../context/TodoContext';
 import EditModal from './EditModal/EditModal';
-import { buttonVariants, taskListVariants } from '../../shared/variants';
+import { buttonVariants, lineThroughVariants, taskListVariants } from '../../shared/variants';
 
 interface TaskProps {
   task: ITask;
@@ -12,9 +12,15 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }) => {
-  const [show, setShow] = useState(false);
-  const { removeTask, toggleTask } = useTodoContextHook();
   const { id, title, completed } = task;
+  const [showModal, setShowModal] = useState(false);
+  const [taskComplete, setTaskCompleted] = useState(completed);
+  const { removeTask, toggleTask } = useTodoContextHook();
+
+  const toggleTaskHandler = () => {
+    toggleTask(id);
+    setTaskCompleted((prevState) => !prevState);
+  };
 
   return (
     <motion.li
@@ -26,10 +32,17 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
       className="task"
     >
       <label htmlFor={`task-${id}`}>
-        <input type="checkbox" id={`task-${id}`} onChange={() => toggleTask(id)} defaultChecked={completed} />
-        <span>{title}</span>
+        <input type="checkbox" id={`task-${id}`} onChange={toggleTaskHandler} defaultChecked={taskComplete} />
+        <span>
+          <motion.div
+            variants={lineThroughVariants}
+            animate={taskComplete ? 'visible' : 'initial'}
+            className="line-through"
+          />
+          {title}
+        </span>
       </label>
-      {!show && (
+      {!showModal && (
       <div className="btn-container">
         <motion.button
           variants={buttonVariants}
@@ -38,7 +51,7 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
           type="button"
           aria-label="Edit"
           className="btn-edit"
-          onClick={() => setShow(true)}
+          onClick={() => setShowModal(true)}
         >
           <MdEdit />
         </motion.button>
@@ -55,7 +68,7 @@ const Task: React.FC<TaskProps> = ({ task, useTodoContextHook = useTodoContext }
         </motion.button>
       </div>
       )}
-      {show && <EditModal taskId={id} modalCloseHandler={() => setShow(false)} />}
+      {showModal && <EditModal taskId={id} modalCloseHandler={() => setShowModal(false)} />}
     </motion.li>
   );
 };

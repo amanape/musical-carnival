@@ -42,3 +42,12 @@ export const taskListVariants: Variants = {
     opacity: 0,
   },
 };
+
+export const lineThroughVariants: Variants = {
+  initial: {
+    width: 0,
+  },
+  visible: {
+    width: '100%',
+  },
+};
