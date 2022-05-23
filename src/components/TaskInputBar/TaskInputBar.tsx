@@ -3,10 +3,10 @@ import React, {
 } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
 import { nanoid } from 'nanoid';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTodoContext } from '../../context/TodoContext';
-import { ITask } from '../../shared/types';
-import { buttonVariants } from '../../shared/variants';
+import { InputError, ITask } from '../../shared/types';
+import { buttonVariants, pVariants } from '../../shared/variants';
 
 interface TaskInputBarProps {
   useTodoContextHook?: () => Pick<ReturnType<typeof useTodoContext>, 'addTask'>
@@ -14,27 +14,22 @@ interface TaskInputBarProps {
 
 const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTodoContext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<'typeError' | 'defError' | null>(null);
+  const [error, setError] = useState<InputError>(null);
   const { addTask } = useTodoContextHook();
 
   const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (inputRef.current?.value) {
-      const task: ITask = { id: nanoid(), title: inputRef.current.value.trim(), completed: false };
-      if (task) {
-        try {
-          addTask(task);
-        } catch (e) {
-          if (e instanceof TypeError) {
-            setError('typeError');
-          } else {
-            setError('defError');
-          }
-        }
+    const newTitle = inputRef.current?.value.trim();
+    if (inputRef.current?.value && newTitle) {
+      const task: ITask = { id: nanoid(), title: newTitle, completed: false };
+      try {
+        addTask(task);
+      } catch (e) {
+        setError('defError');
       }
-      inputRef.current.value = '';
-    }
+    } else setError('typeError');
+    inputRef.current!.value = '';
   };
 
   useEffect(() => {
@@ -44,7 +39,7 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
 
   return (
     <form onSubmit={onSubmitHandler} className="input-form">
-      <input type="text" placeholder="Add a task..." aria-label="Create a new task" required ref={inputRef} />
+      <input type="text" placeholder="Add a task..." aria-label="Create a new task" ref={inputRef} />
       <motion.button
         variants={buttonVariants}
         whileHover="hover"
@@ -55,8 +50,21 @@ const TaskInputBar: React.FC<TaskInputBarProps> = ({ useTodoContextHook = useTod
       >
         <BsPlusLg />
       </motion.button>
-      {error === 'defError' && <p className="error">Task already exists.</p>}
-      {error === 'typeError' && <p className="error">Task must be a valid text.</p>}
+      <AnimatePresence>
+        {error && (
+        <motion.p
+          custom="y"
+          variants={pVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="error"
+        >
+          {error === 'defError' && 'Task already exists.'}
+          {error === 'typeError' && 'Task cannot be empty.'}
+        </motion.p>
+        )}
+      </AnimatePresence>
     </form>
   );
 };

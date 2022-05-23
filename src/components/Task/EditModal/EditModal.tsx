@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MdCancel, MdDone } from 'react-icons/md';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTodoContext } from '../../../context/TodoContext';
-import { buttonVariants } from '../../../shared/variants';
+import { buttonVariants, pVariants } from '../../../shared/variants';
+import { InputError } from '../../../shared/types';
 
 interface EditModalProps {
   taskId: string;
@@ -12,7 +13,7 @@ interface EditModalProps {
 
 const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTodoContextHook = useTodoContext }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<'typeError' | 'defError' | null>(null);
+  const [error, setError] = useState<InputError>(null);
 
   const { updateTask, tasks } = useTodoContextHook();
 
@@ -27,10 +28,9 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
         updateTask({ ...currentTask, title: newTitle });
         modalCloseHandler();
       } catch (e) {
-        if (e instanceof TypeError) setError('typeError');
-        else setError('defError');
+        setError('defError');
       }
-    }
+    } else if (!newTitle) setError('typeError');
   };
 
   useEffect(() => {
@@ -47,10 +47,23 @@ const EditModal: React.FC<EditModalProps> = ({ taskId, modalCloseHandler, useTod
 
   return (
     <form onSubmit={submitHandler} className="edit-modal">
-      {error === 'defError' && <p className="error">Task already exists.</p>}
-      {error === 'typeError' && <p className="error">Task must be a valid text.</p>}
+      <AnimatePresence>
+        {error && (
+        <motion.p
+          custom="x"
+          variants={pVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="error"
+        >
+          {error === 'defError' && 'Task already exists.'}
+          {error === 'typeError' && 'Task cannot be empty.'}
+        </motion.p>
+        )}
+      </AnimatePresence>
       <label htmlFor="edit-task-input">
-        <input type="text" id="edit-task-input" required ref={inputRef} />
+        <input type="text" id="edit-task-input" ref={inputRef} />
       </label>
       <div className="btn-container">
         <motion.button

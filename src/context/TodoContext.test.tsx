@@ -40,14 +40,6 @@ describe('TodoContext', () => {
 
       expect(() => act(() => result.current.addTask(dummyTask))).toThrowError('Task already exists');
     });
-
-    it('should throw an error if a task is whitespace', () => {
-      const { result } = renderHook(() => useTodoContext(), { wrapper });
-
-      expect(
-        () => act(() => result.current.addTask({ ...dummyTask, title: '   ' })),
-      ).toThrowError('Task cannot be empty');
-    });
   });
 
   describe('removeTask', () => {
@@ -87,18 +79,6 @@ describe('TodoContext', () => {
       });
 
       expect(() => act(() => result.current.updateTask(dummyTask))).toThrowError('Task already exists');
-    });
-
-    it('should throw an error if a task is whitespace', () => {
-      const { result } = renderHook(() => useTodoContext(), { wrapper });
-
-      act(() => {
-        result.current.addTask(dummyTask);
-      });
-
-      expect(
-        () => act(() => result.current.updateTask({ ...dummyTask, title: '   ' })),
-      ).toThrowError('Task cannot be empty');
     });
   });
 

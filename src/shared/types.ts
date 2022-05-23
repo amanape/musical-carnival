@@ -3,3 +3,5 @@ export interface ITask {
   title: string;
   completed: boolean;
 }
+
+export type InputError = 'typeError' | 'defError' | null;
