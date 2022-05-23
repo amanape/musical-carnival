@@ -11,8 +11,20 @@ div.App {
     width: 100%;
     max-width: 650px;
 
-    strong {
-      text-decoration: underline;
+    .container-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      label {
+        display: flex;
+        align-items: center;
+      }
+
+      label:hover {
+        cursor: pointer;
+      }
     }
   }
 }

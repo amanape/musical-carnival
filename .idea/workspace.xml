@@ -7,8 +7,11 @@
     <list default="true" id="ded8d456-9de7-4477-beab-c1b47a7bc7bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/EditModal/EditModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TaskList/TaskList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TaskList/TaskList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/components/_task_button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/components/_task_button.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/layout/_app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/layout/_app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/variants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/variants.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +207,7 @@
       <workItem from="1653299999815" duration="164000" />
       <workItem from="1653300430584" duration="680000" />
       <workItem from="1653302531253" duration="618000" />
-      <workItem from="1653325900555" duration="8577000" />
+      <workItem from="1653325900555" duration="10931000" />
     </task>
     <servers />
   </component>

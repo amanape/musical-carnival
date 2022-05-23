@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { AiOutlineSortAscending, AiOutlineSortDescending } from 'react-icons/ai';
-import { motion } from 'framer-motion';
 import TaskList from './components/TaskList/TaskList';
 import TaskInputBar from './components/TaskInputBar/TaskInputBar';
 import { useTodoContext } from './context/TodoContext';
@@ -32,21 +31,23 @@ const App: React.FC<AppProps> = ({ useTodoContextHook = useTodoContext }) => {
     <div className="App">
       <TaskInputBar />
       <div className="task-container">
-        <div className="task-button-container">
-          <button type="button" aria-label="Sort tasks" onClick={cycle}>Tasks</button>
-          {sortOption !== 'default' && (
-            <>
+        <div className="container-header">
+          <div className="task-button-container">
+            <button type="button" aria-label="Sort tasks" onClick={cycle}>Tasks</button>
+            {sortOption !== 'default' && (
+              <>
                 {sortOption === 'asc' && <AiOutlineSortAscending />}
                 {sortOption === 'desc' && <AiOutlineSortDescending />}
-            </>
-          )}
+              </>
+            )}
+          </div>
+          <label htmlFor="filter-complete">
+            Hide completed
+            <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
+          </label>
         </div>
         <TaskList tasks={sortOption === 'default' ? filteredTasks : sortedTasks} />
       </div>
-      <motion.label layout htmlFor="filter-complete">
-        Hide completed
-        <input type="checkbox" id="filter-complete" onChange={() => setFilterComplete((prevState) => !prevState)} />
-      </motion.label>
     </div>
   );
 };

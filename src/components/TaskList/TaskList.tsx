@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Task from '../Task/Task';
 import { ITask } from '../../shared/types';
 
@@ -11,9 +12,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
 
   return (
     <ol>
-      {allTasks && allTasks.map((task) => (
-        <Task task={task} key={task.id} />
-      ))}
+      <AnimatePresence initial={false}>
+        {allTasks && allTasks.map((task) => (
+          <Task task={task} key={task.id} />
+        ))}
+      </AnimatePresence>
       {!allTasks.length && <p>No tasks yet</p>}
     </ol>
   );

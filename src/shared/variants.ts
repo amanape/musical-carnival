@@ -30,3 +30,15 @@ export const pVariants: Variants = {
     },
   }),
 };
+
+export const taskListVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
